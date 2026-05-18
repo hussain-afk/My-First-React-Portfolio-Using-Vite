@@ -1,4 +1,4 @@
-import EducationTimeline from '../components/EducationTimeline'
+import EducationTimeline from '../components/Education'
 
 function Education() {
   return (

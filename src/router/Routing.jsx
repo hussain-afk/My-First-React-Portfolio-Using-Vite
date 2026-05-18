@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home.jsx";
-import Education from "../pages/Education.jsx";
+import Education from "../pages/EducationPage.jsx";
 import RootLayout from "./RootLayout.jsx";
 import AboutPage from "../pages/AboutPage.jsx";
 import ProjectPage from "../pages/ProjectPage.jsx";
