@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaReact, FaJs, FaCss3Alt, FaHtml5 } from 'react-icons/fa';
+import Typewriter from './TypeWriter';
 
 export default function Hero() {
   return (
@@ -44,7 +45,14 @@ export default function Hero() {
 
           {/* Description Block */}
           <p className="text-gray-400 font-light text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-            Specializing in building clean, responsive user interfaces and robust Single Page Applications (SPAs). Focused on crafting modular code using <span className="text-white font-medium">React.js</span>, <span className="text-white font-medium">Tailwind CSS</span>, and modern web architectures.
+
+            <Typewriter 
+            words={["Specializing in building clean, responsive user interfaces and robust Single Page Applications (SPAs). Focused on crafting modular code using React.js, Tailwind CSS, and modern web architectures."]} 
+            typingSpeed={100}
+            deletingSpeed={50}
+            pauseDuration={1500}
+          />
+
           </p>
 
           {/* Action Buttons */}
