@@ -1,74 +1,89 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Sidebar from '../components/Sidebar'; 
-import Preloader from '../components/PreLoader'; // Import your preloader component
-import { IoMdClose } from "react-icons/io";
-import { FaBarsStaggered } from "react-icons/fa6";
+import Sidebar from '../components/Sidebar';
+import Preloader from '../components/PreLoader';
+import { IoMdClose } from 'react-icons/io';
+import { FaBarsStaggered } from 'react-icons/fa6';
+import Footer from '../components/Footer';
+import { ThemeContext } from '../components/themeContext/context';
 
 export default function RootLayout() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
 
-  // Automatically close mobile sidebar when changing pages/routes
+  const { theme } = useContext(ThemeContext);
+
+  const themeClass =
+    theme === 'dark'
+      ? 'bg-[#0d1117] text-white'
+      : 'bg-white text-black';
+
   useEffect(() => {
     setIsSidebarOpen(false);
   }, [location]);
 
-  // Handle scroll lock mechanics for BOTH the preloader and the active mobile sidebar
   useEffect(() => {
-    if (isLoading || isSidebarOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => { document.body.style.overflow = 'unset'; };
+    document.body.style.overflow = isLoading || isSidebarOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isLoading, isSidebarOpen]);
 
   return (
     <>
-      {/* 1. INITIAL DIAGNOSTIC BOOT LOADER */}
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
 
-      {/* 2. CORE PORTFOLIO VIEW WRAPPER */}
-      <div className="min-h-screen bg-[#0d1117] text-white font-sans antialiased flex selection:bg-[#58a6ff]/30 selection:text-white overflow-x-hidden">
-        
-        {/* MOBILE SIDEBAR TOGGLE BUTTON (Hidden entirely while the system is loading) */}
+      <div
+        className={`min-h-screen font-sans antialiased selection:bg-[#58a6ff]/30 selection:text-white overflow-x-hidden transition-colors duration-300 ${themeClass}`}
+      >
         {!isLoading && (
-          <button 
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="fixed top-5 right-5 z-[100] md:hidden bg-[#161b22]/90 backdrop-blur-md border border-[#30363d] text-[#58a6ff] p-3 rounded-xl shadow-2xl transition-all active:scale-95 hover:border-[#58a6ff]/50 flex items-center justify-center"
+          <button
+            type="button"
+            onClick={() => setIsSidebarOpen((prev) => !prev)}
+            className={`fixed top-5 right-5 z-[100] flex items-center justify-center rounded-xl border p-3 text-[#58a6ff] shadow-2xl backdrop-blur-md transition-[border-color,background-color,transform] hover:border-[#58a6ff]/50 active:scale-95 md:hidden ${
+              theme === 'dark'
+                ? 'border-[#30363d] bg-[#161b22]/90'
+                : 'border-gray-300 bg-white/90'
+            }`}
             aria-label="Toggle navigation menu"
+            aria-expanded={isSidebarOpen}
           >
-            <div className="transition-transform duration-300 transform rotate-0 hover:rotate-90">
-              {isSidebarOpen ? <IoMdClose className="text-xl" /> : <FaBarsStaggered className="text-xl" />}
-            </div>
+            <span className="transition-transform duration-300 hover:rotate-90">
+              {isSidebarOpen ? (
+                <IoMdClose className="text-xl" />
+              ) : (
+                <FaBarsStaggered className="text-xl" />
+              )}
+            </span>
           </button>
         )}
 
-        {/* GLASSMORPHISM BACKDROP OVERLAY */}
-        <div 
+        <div
           onClick={() => setIsSidebarOpen(false)}
-          className={`fixed inset-0 z-[80] bg-black/50 backdrop-blur-sm md:hidden transition-opacity duration-300 ${
-            isSidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          className={`fixed inset-0 z-[80] backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+            theme === 'dark' ? 'bg-black/50' : 'bg-white/50'
+          } ${
+            isSidebarOpen
+              ? 'opacity-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none'
           }`}
         />
 
-        {/* INDEPENDENT SIDEBAR COMPONENT */}
         <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
-        {/* MAIN CANVAS INFRASTRUCTURE FOR SUB-PAGES */}
-        <main className="flex-1 min-h-screen md:pl-64 flex flex-col transition-all duration-300 ease-in-out">
-          
-          {/* Subtle top ambient lighting strip */}
-          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#58a6ff]/10 to-transparent pointer-events-none" />
-          
-          <div className="flex-1 w-full max-w-5xl mx-auto px-5 sm:px-10 py-24 md:py-12 transition-all duration-300">
-            {/* The individual page (Home, About, Projects) renders inside this Outlet */}
+        <main className="relative flex min-h-screen flex-col md:pl-64">
+          <div className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#58a6ff]/10 to-transparent" />
+
+          <div className="mx-auto w-full max-w-5xl flex-1 px-5 py-24 transition-all duration-300 sm:px-10 md:py-12">
             <Outlet />
           </div>
-        </main>
 
+          <div className="mx-auto w-full max-w-5xl px-5 py-12 sm:px-10 md:py-16">
+            <Footer />
+          </div>
+        </main>
       </div>
     </>
   );
