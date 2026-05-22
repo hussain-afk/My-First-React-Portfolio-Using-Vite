@@ -7,11 +7,13 @@ import ProjectPage from "../pages/ProjectPage.jsx";
 import AchievementsPage from "../pages/AchivementsPage.jsx";
 import Skills from "../pages/Skills.jsx";
 import ContactPage from "../pages/ContactPage.jsx";
+import NotFound from "../pages/NotFound.jsx";
 
 function Routing() {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/*" element={<NotFound />} />
                 <Route element={<RootLayout />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/education" element={<Education />} />
