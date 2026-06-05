@@ -107,7 +107,13 @@ export default function Hero() {
                 title="RESUME"
               >
                 <div className="space-y-3">
-                  <span className="text-[#58a6ff]">npm</span> install -g muhammad-hussain-memon-resume
+                  <button className="w-full">
+                    <a href={resumeImage} download="MY_RESUME.jpg" className="inline-flex items-center gap-2 px-4 py-2 bg-[#58a6ff] text-white font-mono text-xs uppercase font-bold tracking-wider rounded-xl transition-all hover:bg-[#58a6ff]/90">
+                      <Terminal className="w-4 h-4" />
+                      <span className="text-[#58a6ff]">npm</span> install -g muhammad-hussain-memon-res
+                    </a>
+                  </button>
+
                   <div className="p-3 bg-[#0d1117] border border-[#30363d] rounded-xl font-mono text-xs text-gray-400">
                     <img src={resumeImage} alt="Resume" />
                     {/* <span className="text-[#58a6ff]">npm</span> install -g muhammad-hussain-memon-resume */}
