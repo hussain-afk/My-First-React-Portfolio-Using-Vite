@@ -115,7 +115,7 @@ export default function Hero() {
 
           {/* RIGHT CARD */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2 pt-0">
-            {/* <motion.div
+            <motion.div
               animate={{
                 y: [0, -12, 0],
                 rotate: [-1, 1, -1],
@@ -126,7 +126,7 @@ export default function Hero() {
                 ease: "easeInOut",
               }}
               className="relative"
-            > */}
+            >
             {/* Hanging Rope */}
             <div className="absolute left-1/2 -top-16 -translate-x-1/2 hidden sm:block">
               <div className="w-[2px] h-16 bg-gray-300/60 dark:bg-white/20" />
@@ -210,7 +210,7 @@ export default function Hero() {
               {/* Border Glow Edge Overlay */}
               <div className="absolute inset-0 rounded-[32px] border border-blue-400/5 dark:border-blue-400/10 pointer-events-none" />
             </div>
-            {/* </motion.div> */}
+            </motion.div>
           </div>
 
         </div>
