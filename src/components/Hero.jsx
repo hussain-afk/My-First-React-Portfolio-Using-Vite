@@ -1,221 +1,262 @@
-import { useContext, useState } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaReact, FaJs, FaCss3Alt, FaHtml5 } from "react-icons/fa";
-import Typewriter from "./TypeWriter";
-import Modal from "./Modal";
-import resumeImage from "../assets/RESUME.jpg";
-import { Terminal } from "lucide-react";
+import { useContext, useState } from 'react';
 import { ThemeContext } from "./themeContext/context";
+import Modal from "./Modal";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaReact,
+  FaJs,
+  FaCss3Alt,
+  FaHtml5,
+} from "react-icons/fa";
+
+// import your image
+import profileImg from "../assets/my-profile.jpg";
+import Typewriter from "./TypeWriter";
+import RESUME from "../assets/RESUME.jpg";
+import qrCodeImg from "../assets/myPortfolioQr.png";
 
 export default function Hero() {
-  const { theme } = useContext(ThemeContext);
+  const skills = [
+    "React",
+    "JavaScript",
+    "Tailwind",
+    "HTML",
+    "CSS",
+    "GSAP",
+    "Firebase",
+    "GitHub",
+  ];
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const isDark = theme === "dark";
+  const { theme } = useContext(ThemeContext);
 
   return (
     <section
-      style={{ marginTop: "-40px", marginBottom: "-80px" }}
-      className="relative flex items-center justify-center overflow-hidden py-10"
+      style={{ backgroundColor: theme === 'dark' ? '#0d1117' : '#FFFFFF' }}
+      className="relative w-full overflow-hidden flex items-center transition-colors duration-300 py-0 px-0 m-0"
     >
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#58a6ff]/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-60 h-60 bg-[#58a6ff]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-        <div className="lg:col-span-7 space-y-6 text-center lg:text-left order-2 lg:order-1">
-          <div
-            className={`inline-flex items-center gap-2.5 border px-4 py-2 rounded-full mx-auto lg:mx-0 ${isDark
-                ? "bg-[#161b22] border-[#30363d]"
-                : "bg-gray-100 border-gray-300"
-              }`}
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            <span
-              className={`text-[10px] uppercase font-mono tracking-widest font-bold ${isDark ? "text-gray-400" : "text-gray-600"
-                }`}
-            >
-              Open to new opportunities
-            </span>
-          </div>
+      <div className="max-w-[1300px] mx-auto w-full px-4 sm:px-6 lg:px-10 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-10">
 
-          <div className="space-y-2">
-            <p className="text-sm font-mono tracking-[0.25em] text-[#58a6ff] uppercase font-semibold">
-              Hi, my name is
-            </p>
-
-            <h1
-              className={`text-4xl sm:text-5xl xl:text-6xl font-black italic tracking-tight uppercase leading-none ${isDark ? "text-white" : "text-gray-950"
-                }`}
-            >
-              Muhammad <br />
-              <span className="text-[#58a6ff] not-italic font-sans tracking-tighter normal-case font-black drop-shadow-[0_0_30px_rgba(88,166,255,0.2)]">
-                Hussain Memon
+          {/* LEFT CONTENT */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 bg-gray-50/80 dark:bg-white/5 backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm font-medium tracking-wide">
+                Available For Work
               </span>
+            </div>
+
+            {/* Heading */}
+            <h1 className="mt-6 font-black tracking-tight leading-[0.95] text-[42px] sm:text-[64px] md:text-[80px] xl:text-[70px] uppercase">
+              <span style={{ color: theme === 'dark' ? '#FFFFFF' : '#1E293B' }} className="block">Muhammad</span>
+              <span style={{ color: theme === 'dark' ? '#FFFFFF' : '#1E293B' }} className="block">Hussain</span>
+              <span style={{ color: theme === 'dark' ? '#60A5FA' : '#1D4ED8' }} className="block">Memon</span>
             </h1>
 
-            <h2
-              className={`text-xl sm:text-2xl font-mono font-medium mt-2 ${isDark ? "text-gray-400" : "text-gray-600"
-                }`}
-            >
-              &lt;
-              <Typewriter
-                words={["Frontend Web Developer"]}
-                typingSpeed={200}
-                deletingSpeed={50}
-                pauseDuration={1500}
-              />{" "}
-              /&gt;
+            {/* Role */}
+            <h2 style={{ color: theme === 'dark' ? '#E2E8F0' : '#475569' }} className="mt-4 text-xl sm:text-2xl font-light tracking-wide">
+              <Typewriter words={["<Frontend Developer/>", "<JavaScript Engineer/>"]} />
             </h2>
-          </div>
 
-          <p
-            className={`font-light text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 ${isDark ? "text-gray-400" : "text-gray-600"
-              }`}
-          >
-            Specializing in building clean, responsive user interfaces and
-            robust Single Page Applications (SPAs). Focused on crafting modular
-            code using React.js, Tailwind CSS, and modern web architectures.
-          </p>
-           
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-            <Link
-              to="/contact"
-              className={`w-full sm:w-auto px-8 py-3.5 border font-mono text-xs uppercase font-extrabold tracking-widest rounded-xl transition-all duration-300 active:scale-98 text-center ${isDark
-                  ? "bg-[#161b22] text-white border-[#30363d] hover:bg-[#161b22]/80 hover:border-[#58a6ff]/50"
-                  : "bg-white text-gray-950 border-gray-300 hover:border-[#58a6ff]/50"
-                }`}
-            >
-              Let's Talk
-            </Link>
-            <div className="p-8">
-              {/* Action Trigger Button */}
+            {/* Description */}
+            <p style={{ color: theme === 'dark' ? '#94A3B8' : '#64748B' }} className="mt-6 text-sm sm:text-base md:text-lg leading-relaxed max-w-[550px]">
+              A passionate frontend engineer crafting beautiful, responsive and
+              interactive web experiences from Karachi. Specialized in React,
+              Tailwind CSS, JavaScript and modern UI development.
+            </p>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-4 mt-8 justify-center lg:justify-start">
+              <Link
+                to="/contact"
+                className="px-8 py-3.5 rounded-full bg-gray-900 text-white dark:bg-white dark:text-black font-semibold hover:scale-105 active:scale-95 transition text-center text-sm shadow-md"
+              >
+                Let's Collaborate →
+              </Link>
+
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#161b22] border border-[#30363d] hover:border-[#58a6ff]/40 text-gray-300 hover:text-white font-mono text-xs uppercase font-bold tracking-wider rounded-xl transition-all"
+                style={{ color: theme === 'dark' ? '#60A5FA' : '#1E293B', border: `1px solid ${theme === 'dark' ? '#60A5FA' : '#1E293B'}` }}
+                className="px-8 py-3.5 rounded-full border border-gray-300 dark:border-white/10 bg-transparent hover:border-blue-500 dark:hover:border-blue-400 active:scale-95 transition text-center text-sm font-medium"
               >
-                <Terminal className="w-4 h-4 text-[#58a6ff]" />
-                <span>See Resume</span>
+                Download Resume
               </button>
 
-              {/* Reusable Component Placement */}
-              <Modal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                title="RESUME"
-              >
-                <div className="space-y-3">
-                  <button className="w-full">
-                    <a href={resumeImage} download="MY_RESUME.jpg" className="inline-flex items-center gap-2 px-4 py-2 bg-[#58a6ff] text-white font-mono text-xs uppercase font-bold tracking-wider rounded-xl transition-all hover:bg-[#58a6ff]/90">
-                      <Terminal className="w-4 h-4" />
-                      <span className="text-[#58a6ff]">npm</span> install -g muhammad-hussain-memon-res
-                    </a>
-                  </button>
+            </div>
 
-                  <div className="p-3 bg-[#0d1117] border border-[#30363d] rounded-xl font-mono text-xs text-gray-400">
-                    <img src={resumeImage} alt="Resume" />
-                    {/* <span className="text-[#58a6ff]">npm</span> install -g muhammad-hussain-memon-resume */}
+            {/* Social Icons */}
+            <div className="flex gap-4 mt-8">
+              <a
+                style={{ color: theme === 'dark' ? '#94A3B8' : '#475569' }}
+                href="https://github.com/hussain-afk"
+                target="_blank"
+                rel="noreferrer"
+                className="w-11 h-11 rounded-full border border-gray-300 dark:border-white/10 flex items-center justify-center hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition text-lg bg-gray-50/50 dark:bg-transparent"
+              >
+                <FaGithub />
+              </a>
+
+              <a
+                style={{ color: theme === 'dark' ? '#94A3B8' : '#475569' }}
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="w-11 h-11 rounded-full border border-gray-300 dark:border-white/10 flex items-center justify-center hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition text-lg bg-gray-50/50 dark:bg-transparent"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT CARD */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2 pt-0">
+            {/* <motion.div
+              animate={{
+                y: [0, -12, 0],
+                rotate: [-1, 1, -1],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative"
+            > */}
+            {/* Hanging Rope */}
+            <div className="absolute left-1/2 -top-16 -translate-x-1/2 hidden sm:block">
+              <div className="w-[2px] h-16 bg-gray-300/60 dark:bg-white/20" />
+            </div>
+
+            {/* CARD */}
+            <div
+              style={{ backgroundColor: theme === 'dark' ? '#0B1225' : '#FFFFFF' }}
+              className="mt-4 relative w-[290px] sm:w-[340px] h-[520px] sm:h-[560px] rounded-[32px] border border-gray-200 dark:border-white/10 backdrop-blur-xl overflow-hidden shadow-xl "
+            >
+              <div className="p-6 sm:p-7 h-full flex flex-col">
+                {/* Header */}
+                <div
+                  style={{ color: theme === 'dark' ? '#64748B' : '#94A3B8' }}
+                  className="flex justify-between text-[10px] tracking-[0.3em] uppercase font-mono"
+                >
+                  <span>Developer</span>
+                  <span>2026</span>
+                </div>
+
+                {/* Profile */}
+                <div className="flex justify-center mt-6 sm:mt-8">
+                  <div className="p-[3px] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 shadow-md">
+                    <img
+                      src={profileImg}
+                      alt="Muhammad Hussain Memon"
+                      className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-white dark:border-[#0B1225]"
+                    />
                   </div>
                 </div>
-              </Modal>
-            </div>
 
-            
-          </div>
+                {/* Name */}
+                <h3 style={{ color: theme === 'dark' ? '#FFFFFF' : '#1E293B' }} className="text-center text-2xl sm:text-3xl font-bold mt-5 sm:mt-6 px-2">
+                  Muhammad Hussain
+                </h3>
 
-          <div
-            style={{ marginTop: "-20px" }}
-            className={`pt-8 flex items-center justify-center lg:justify-start gap-6 text-xs font-mono ${isDark ? "text-gray-500" : "text-gray-600"
-              }`}
-          >
-            <span
-              className={`uppercase tracking-widest border-r pr-4 ${isDark ? "border-[#30363d]" : "border-gray-300"
-                }`}
-            >
-              Tech Core
-            </span>
+                <p style={{ color: theme === 'dark' ? '#60A5FA' : '#2563EB' }} className="text-center tracking-[0.25em] text-[10px] sm:text-xs uppercase mt-2 font-mono font-semibold">
+                  Frontend Developer
+                </p>
 
-            <div className="flex items-center gap-4 text-sm">
-              <FaReact className="text-[#58a6ff]" title="React" />
-              <FaJs className="text-[#58a6ff]" title="JavaScript" />
-              <FaCss3Alt className="text-[#58a6ff]" title="CSS3" />
-              <FaHtml5 className="text-[#58a6ff]" title="HTML5" />
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:col-span-5 order-1 lg:order-2">
-          <div
-            className={`relative mx-auto max-w-md lg:max-w-none w-full border rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-[#58a6ff]/30 group ${isDark
-                ? "bg-[#161b22] border-[#30363d]"
-                : "bg-white border-gray-300"
-              }`}
-          >
-            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#58a6ff]/40 to-transparent" />
-
-            <div
-              className={`flex items-center justify-between px-4 py-3 border-b ${isDark
-                  ? "border-[#30363d]/70 bg-[#0d1117]/50"
-                  : "border-gray-300 bg-gray-100"
-                }`}
-            >
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#ef4444]/60" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#eab308]/60" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#22c55e]/60" />
-              </div>
-
-              <span
-                className={`text-[10px] font-mono tracking-wider ${isDark ? "text-gray-500" : "text-gray-600"
-                  }`}
-              >
-                MuhammadHussainMemon_Profile.js
-              </span>
-            </div>
-
-            <div
-              className={`p-5 sm:p-6 font-mono text-xs sm:text-[13px] leading-relaxed overflow-x-auto ${isDark ? "text-gray-300" : "text-gray-700"
-                }`}
-            >
-              <span className="text-[#ff79c6]">const</span> developer = &#123;
-              <div className="pl-4">
-                firstName: <span className="text-[#d97706]">'Muhammad'</span>,
-                <br />
-                lastName: <span className="text-[#d97706]">'Hussain Memon'</span>,
-                <br />
-                role: <span className="text-[#d97706]">'Frontend Web Developer'</span>,
-                <br />
-                location: <span className="text-[#d97706]">'Karachi, PK'</span>,
-                <br />
-                skills: <span className="text-[#8b5cf6]">[</span>
-                <div className="pl-4 text-[#0284c7]">
-                  'HTML5', 'CSS3', 'JavaScript ES6+',
-                  <br />
-                  'React.js', 'Tailwind CSS', 'Firebase'
+                {/* Skills */}
+                <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
+                  {skills.map((skill) => (
+                    <span
+                      key={skill}
+                      style={{
+                        backgroundColor: theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(241,245,249,0.9)',
+                        color: theme === 'dark' ? '#CBD5E1' : '#475569'
+                      }}
+                      className="px-2.5 py-1 rounded-full border border-gray-200/60 dark:border-white/10 text-[11px] sm:text-xs font-medium backdrop-blur-sm"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-                <span className="text-[#8b5cf6]">]</span>,
-                <br />
-                passion: <span className="text-[#d97706]">'Clean Code & Beautiful UI'</span>,
-                <br />
-                status: <span className="text-[#16a34a]">true</span>
-              </div>
-              &#125;;
 
-              <div
-                className={`mt-4 pt-3 border-t flex items-center justify-between text-[11px] ${isDark
-                    ? "border-[#30363d]/40 text-gray-500"
-                    : "border-gray-300 text-gray-600"
-                  }`}
-              >
-                <span>// Console output ready</span>
-                <span className="text-[#58a6ff] animate-pulse">■</span>
+                {/* Bottom */}
+                <div style={{ borderColor: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(226,232,240,0.8)' }} className="mt-auto border-t pt-4 sm:pt-6">
+                  <div className="flex justify-between items-end">
+                    <div className="font-mono">
+                      <p style={{ color: theme === 'dark' ? '#64748B' : '#94A3B8' }} className="text-[10px] uppercase tracking-wider">ID</p>
+                      <p style={{ color: theme === 'dark' ? '#FFFFFF' : '#1E293B' }} className="text-xs sm:text-sm font-semibold">
+                        MHM-488103
+                      </p>
+
+                      <p style={{ color: theme === 'dark' ? '#64748B' : '#94A3B8' }} className="text-[10px] uppercase tracking-wider mt-3">ACCESS</p>
+                      <p style={{ color: theme === 'dark' ? '#E2E8F0' : '#475569' }} className="text-xs sm:text-sm font-medium">
+                        Karachi, Pakistan
+                      </p>
+                    </div>
+
+                    {/* QR Code Layout */}
+                    <div style={{ backgroundColor: theme === 'dark' ? '#FFFFFF' : '#0F172A' }} className="w-20 rounded-2xl p-1 border border-gray-200/60 dark:border-white/10 flex items-center justify-center">
+                      {/* Simulated QR Code Blocks */}
+                      <img src={qrCodeImg} alt="QR Code" />
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              {/* Border Glow Edge Overlay */}
+              <div className="absolute inset-0 rounded-[32px] border border-blue-400/5 dark:border-blue-400/10 pointer-events-none" />
             </div>
+            {/* </motion.div> */}
           </div>
+
         </div>
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        theme={theme}
+        title="Download Professional CV"
+      >
+        <div className="space-y-4 flex flex-col items-center">
+          <p
+            style={{ color: theme === "dark" ? "#94A3B8" : "#64748B" }}
+            className="text-xs font-mono uppercase tracking-widest text-center w-full"
+          >
+            Click on the preview to download CV
+          </p>
+
+          {/* SCROLLBAR HIDDEN ARCHITECTURE */}
+          <div
+            style={{
+              borderColor: theme === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)",
+              backgroundColor: theme === "dark" ? "#0F172A" : "#F8FAFC"
+            }}
+            className="relative w-full max-h-[65vh] overflow-y-auto rounded-2xl border p-2 group cursor-pointer shadow-inner [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {/* Click-to-Download Anchor Link */}
+            <a href={RESUME} download className="block relative overflow-hidden rounded-xl">
+
+              {/* Interactive Hover Overlay Accent */}
+              <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 dark:group-hover:bg-blue-500/5 transition-all duration-300 flex items-center justify-center z-10">
+                <span className="opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300 px-5 py-2.5 bg-gray-900/90 dark:bg-white/90 text-white dark:text-black font-semibold text-sm rounded-full shadow-xl backdrop-blur-sm">
+                  📥 Download Document
+                </span>
+              </div>
+
+              {/* Sharpened Image Layout */}
+              <img
+                src={RESUME}
+                alt="Muhammad Hussain Memon - Professional CV"
+                className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
+              />
+            </a>
+          </div>
+        </div>
+      </Modal>
     </section>
   );
 }

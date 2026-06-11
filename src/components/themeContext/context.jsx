@@ -3,7 +3,12 @@ import { useState, createContext } from 'react';
 export const ThemeContext = createContext();
 
 function ThemeProvider({ children }) {
+    
     const [theme, setTheme] = useState('dark');
+    // other useStates
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+
 
     const toggleTheme = () => {
         if (theme === 'dark') {
