@@ -37,6 +37,15 @@ const projectsData = [
     githubUrl: 'https://github.com/hussain-afk/BG-Remover',
     liveUrl: 'https://bg-remover-lilac-ten.vercel.app/',
   },
+  {
+    title: 'E-commerce Store',
+    subtitle: 'Full-Stack Commerce Solution',
+    description:
+      'A responsive image tool for quick background removal with drag-and-drop input and smooth asset handling.',
+    tags: ['API', 'React', 'Context-API','Responsive Logic'],
+    githubUrl: 'https://github.com/hussain-afk/E-Commerce-Store-Using-React--Hand-Coded-Project-',
+    liveUrl: 'https://e-commerce-store-using-react-hand-c.vercel.app/',
+  },
 ];
 
 export default function Projects() {
