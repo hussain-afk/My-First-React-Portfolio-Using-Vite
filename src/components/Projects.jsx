@@ -46,6 +46,15 @@ const projectsData = [
     githubUrl: 'https://github.com/hussain-afk/E-Commerce-Store-Using-React--Hand-Coded-Project-',
     liveUrl: 'https://e-commerce-store-using-react-hand-c.vercel.app/',
   },
+  {
+    title: 'Quiz App',
+    subtitle: 'Dynamic Quiz Engine',
+    description:
+      'A dynamic quiz application with real-time API integration, responsive design, and interactive user experience.',
+    tags: ['API Integration', 'React', 'Dynamic UI'],
+    githubUrl: 'https://github.com/hussain-afk/Quiz-App-On-React.js',
+    liveUrl: 'https://quiz-app-on-react-js.vercel.app/',
+  },
 ];
 
 export default function Projects() {
