@@ -134,7 +134,7 @@ export default function Hero() {
 
             {/* CARD */}
             <div
-              style={{ backgroundColor: theme === 'dark' ? '#0B1225' : '#FFFFFF' }}
+              style={{ backgroundColor: theme === 'dark' ? '#0B1225' : '#FFFFFF',borderColor: '#0B1225' }}
               className="mt-4 relative w-[290px] sm:w-[340px] h-[520px] sm:h-[560px] rounded-[32px] border border-gray-200 dark:border-white/10 backdrop-blur-xl overflow-hidden shadow-xl "
             >
               <div className="p-6 sm:p-7 h-full flex flex-col">
@@ -199,7 +199,7 @@ export default function Hero() {
                     </div>
 
                     {/* QR Code Layout */}
-                    <div style={{ backgroundColor: theme === 'dark' ? '#FFFFFF' : '#0F172A' }} className="w-20 rounded-2xl p-1 border border-gray-200/60 dark:border-white/10 flex items-center justify-center">
+                    <div style={{ borderColor: theme === 'dark' ? '#FFFFFF' : '#0F172A',backgroundColor:'#FFFFFF' }} className="w-20 rounded-2xl p-1 border border-gray-200/60 dark:border-white/10 flex items-center justify-center">
                       {/* Simulated QR Code Blocks */}
                       <img src={qrCodeImg} alt="QR Code" />
                     </div>

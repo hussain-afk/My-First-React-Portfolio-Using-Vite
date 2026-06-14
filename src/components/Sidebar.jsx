@@ -17,7 +17,7 @@ export default function Sidebar({ isOpen, onClose }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   const navLinks = [
-    { path: '/', label: 'Home', icon: HiOutlineHome },
+    { path: '/', label: 'Home (SPA)', icon: HiOutlineHome },
     { path: '/education', label: 'Education', icon: HiOutlineAcademicCap },
     { path: '/about', label: 'About Me', icon: HiOutlineUser },
     { path: '/projects', label: 'Projects', icon: HiOutlineCode },

@@ -55,6 +55,15 @@ const projectsData = [
     githubUrl: 'https://github.com/hussain-afk/Quiz-App-On-React.js',
     liveUrl: 'https://quiz-app-on-react-js.vercel.app/',
   },
+  {
+    title: 'Weather App',
+    subtitle: 'Real-Time Weather Solution',
+    description:
+      'A real-time weather application with location-based forecasts, responsive design, and interactive user experience.',
+    tags: ['API Integration', 'React', 'Dynamic UI'],
+    githubUrl: 'https://github.com/hussain-afk/WeatherApp',
+    liveUrl: 'https://weather-app-xg6g.vercel.app/',
+  },
 ];
 
 export default function Projects() {
