@@ -103,7 +103,7 @@ export default function Hero() {
 
               <a
                 style={{ color: theme === 'dark' ? '#94A3B8' : '#475569' }}
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/muhammad-hussain-memon-a4b7883a5"
                 target="_blank"
                 rel="noreferrer"
                 className="w-11 h-11 rounded-full border border-gray-300 dark:border-white/10 flex items-center justify-center hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition text-lg bg-gray-50/50 dark:bg-transparent"
