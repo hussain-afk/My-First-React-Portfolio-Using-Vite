@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 
 // import your image
-import profileImg from "../assets/my-profile.jpg";
+import profileImg from "../assets/my-profile.png";
 import Typewriter from "./TypeWriter";
 import RESUME from "../assets/RESUME.jpg";
 import qrCodeImg from "../assets/myPortfolioQr.png";
