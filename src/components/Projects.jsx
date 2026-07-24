@@ -80,6 +80,16 @@ const projectsData = [
     githubUrl: 'https://github.com/hussain-afk/SMIT-HACKATHON-MaintainIQ',
     liveUrl: 'https://smit-hackathon-maintain-iq.vercel.app/',
   },
+  {
+    title: 'EMS | Employee Management System ',
+    subtitle: 'Employee Management System',
+    category: 'fullstack',
+    description:
+      'A comprehensive employee management system with real-time tracking, responsive design, and interactive user experience.',
+    tags: ['API Integration', 'React', 'Dynamic UI','Employee Management','firebase','cloud firestore'],
+    githubUrl: 'https://github.com/hussain-afk/EMS--Employee-Management-System-',
+    liveUrl: 'https://ems-employee-management-system-delta.vercel.app/',
+  },
 ];
 
 export default function Projects() {
@@ -186,25 +196,92 @@ export default function Projects() {
         </div>
 
         {/* 🌟 NEW: Clean Category Filter Tabs */}
-        <div className={`flex items-center justify-center gap-1.5 p-1 rounded-xl border mb-8 max-w-sm mx-auto w-full ${
-          isDark ? 'bg-[#0d1117] border-[#30363d]' : 'bg-gray-100 border-gray-200'
-        }`}>
-          {['all', 'frontend', 'fullstack'].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => handleFilterChange(cat)}
-              className={`flex-1 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-all duration-200 cursor-pointer ${
-                filter === cat
-                  ? 'bg-[#58a6ff] text-white shadow-md'
-                  : isDark
-                    ? 'text-gray-400 hover:text-white hover:bg-[#161b22]'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        <div className="flex justify-center mb-10">
+  <div
+    className={`inline-flex items-center gap-2 p-2 rounded-full border transition-all duration-300 ${
+      isDark
+        ? 'bg-[#0d1117] border-[#30363d]'
+        : 'bg-gray-100 border-gray-200'
+    }`}
+  >
+    {['all', 'frontend', 'fullstack'].map((cat) => {
+      const isActive = filter === cat;
+
+      return (
+        <button
+          key={cat}
+          onClick={() => handleFilterChange(cat)}
+          className={`
+            relative
+            px-5
+            sm:px-7
+            py-2.5
+            rounded-full
+            text-xs
+            sm:text-sm
+            font-semibold
+            capitalize
+            tracking-wide
+            cursor-pointer
+            transition-all
+            duration-300
+            whitespace-nowrap
+            ${
+              isActive
+                ? 'bg-[#58a6ff] text-white shadow-md'
+                : isDark
+                  ? 'text-gray-400 hover:text-white hover:bg-[#161b22]'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
+            }
+          `}
+        >
+          <span className="flex items-center gap-2">
+            {/* Category Indicator */}
+            <span
+              className={`
+                w-1.5
+                h-1.5
+                rounded-full
+                transition-all
+                duration-300
+                ${
+                  isActive
+                    ? 'bg-white scale-110'
+                    : isDark
+                      ? 'bg-gray-600'
+                      : 'bg-gray-400'
+                }
+              `}
+            />
+
+            {/* Label */}
+            {cat === 'all'
+              ? 'All Projects'
+              : cat === 'frontend'
+                ? 'Frontend'
+                : 'Full Stack'}
+          </span>
+
+          {/* Active Bottom Indicator */}
+          {isActive && (
+            <span
+              className="
+                absolute
+                left-1/2
+                -bottom-1
+                w-1
+                h-1
+                rounded-full
+                bg-[#58a6ff]
+                -translate-x-1/2
+              "
+            />
+          )}
+        </button>
+      );
+    })}
+  </div>
+</div>
 
         {/* CAROUSEL CONTAINER */}
         <div className="relative flex h-[380px] w-full items-center justify-center [perspective:1000px] sm:h-[400px]">
