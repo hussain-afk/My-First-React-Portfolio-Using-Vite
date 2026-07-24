@@ -25,11 +25,14 @@ export default function Hero() {
     "Tailwind",
     "HTML",
     "CSS",
-    "GSAP",
     "Firebase",
     "GitHub",
+    "Next.js",
+    "Node.js",
+    "Express.js"
   ];
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -152,6 +155,7 @@ export default function Hero() {
                   <div className="p-[3px] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 shadow-md">
                     <img
                       src={profileImg}
+                      onClick={() => setIsImageModalOpen(true)}
                       alt="Muhammad Hussain Memon"
                       className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-white dark:border-[#0B1225]"
                     />
@@ -168,7 +172,7 @@ export default function Hero() {
                 </p>
 
                 {/* Skills */}
-                <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
+                <div className= "m-1 flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
                   {skills.map((skill) => (
                     <span
                       key={skill}
@@ -256,6 +260,14 @@ export default function Hero() {
             </a>
           </div>
         </div>
+      </Modal>
+      <Modal
+        isOpen={isImageModalOpen}
+        onClose={() => setIsImageModalOpen(false)}
+        theme={theme}
+        title="My Profile Picture"
+      >
+        <img src={profileImg} className="rounded-2xl" alt="" />
       </Modal>
     </section>
   );
