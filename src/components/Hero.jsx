@@ -130,90 +130,112 @@ export default function Hero() {
               }}
               className="relative"
             >
-            {/* Hanging Rope */}
-            <div className="absolute left-1/2 -top-16 -translate-x-1/2 hidden sm:block">
-              <div className="w-[2px] h-16 bg-gray-300/60 dark:bg-white/20" />
-            </div>
-
-            {/* CARD */}
-            <div
-              style={{ backgroundColor: theme === 'dark' ? '#0B1225' : '#FFFFFF',borderColor: '#0B1225' }}
-              className="mt-4 relative w-[290px] sm:w-[340px] h-[520px] sm:h-[560px] rounded-[32px] border border-gray-200 dark:border-white/10 backdrop-blur-xl overflow-hidden shadow-xl "
-            >
-              <div className="p-6 sm:p-7 h-full flex flex-col">
-                {/* Header */}
-                <div
-                  style={{ color: theme === 'dark' ? '#64748B' : '#94A3B8' }}
-                  className="flex justify-between text-[10px] tracking-[0.3em] uppercase font-mono"
-                >
-                  <span>Developer</span>
-                  <span>2026</span>
-                </div>
-
-                {/* Profile */}
-                <div className="flex justify-center mt-6 sm:mt-8">
-                  <div className="p-[3px] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 shadow-md">
-                    <img
-                      src={profileImg}
-                      onClick={() => setIsImageModalOpen(true)}
-                      alt="Muhammad Hussain Memon"
-                      className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-white dark:border-[#0B1225]"
-                    />
-                  </div>
-                </div>
-
-                {/* Name */}
-                <h3 style={{ color: theme === 'dark' ? '#FFFFFF' : '#1E293B' }} className="text-center text-2xl sm:text-3xl font-bold mt-5 sm:mt-6 px-2">
-                  Muhammad Hussain
-                </h3>
-
-                <p style={{ color: theme === 'dark' ? '#60A5FA' : '#2563EB' }} className="text-center tracking-[0.25em] text-[10px] sm:text-xs uppercase mt-2 font-mono font-semibold">
-                  Frontend Developer
-                </p>
-
-                {/* Skills */}
-                <div className= "m-1 flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
-                  {skills.map((skill) => (
-                    <span
-                      key={skill}
-                      style={{
-                        backgroundColor: theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(241,245,249,0.9)',
-                        color: theme === 'dark' ? '#CBD5E1' : '#475569'
-                      }}
-                      className="px-2.5 py-1 rounded-full border border-gray-200/60 dark:border-white/10 text-[11px] sm:text-xs font-medium backdrop-blur-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Bottom */}
-                <div style={{ borderColor: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(226,232,240,0.8)' }} className="mt-auto border-t pt-4 sm:pt-6">
-                  <div className="flex justify-between items-end">
-                    <div className="font-mono">
-                      <p style={{ color: theme === 'dark' ? '#64748B' : '#94A3B8' }} className="text-[10px] uppercase tracking-wider">ID</p>
-                      <p style={{ color: theme === 'dark' ? '#FFFFFF' : '#1E293B' }} className="text-xs sm:text-sm font-semibold">
-                        MHM-488103
-                      </p>
-
-                      <p style={{ color: theme === 'dark' ? '#64748B' : '#94A3B8' }} className="text-[10px] uppercase tracking-wider mt-3">ACCESS</p>
-                      <p style={{ color: theme === 'dark' ? '#E2E8F0' : '#475569' }} className="text-xs sm:text-sm font-medium">
-                        Karachi, Pakistan
-                      </p>
-                    </div>
-
-                    {/* QR Code Layout */}
-                    <div style={{ borderColor: theme === 'dark' ? '#FFFFFF' : '#0F172A',backgroundColor:'#FFFFFF' }} className="w-20 rounded-2xl p-1 border border-gray-200/60 dark:border-white/10 flex items-center justify-center">
-                      {/* Simulated QR Code Blocks */}
-                      <img src={qrCodeImg} alt="QR Code" />
-                    </div>
-                  </div>
-                </div>
+              {/* Hanging Rope */}
+              <div className="absolute left-1/2 -top-16 -translate-x-1/2 hidden sm:block">
+                <div className="w-[2px] h-16 bg-gray-300/60 dark:bg-white/20" />
               </div>
 
-              {/* Border Glow Edge Overlay */}
-              <div className="absolute inset-0 rounded-[32px] border border-blue-400/5 dark:border-blue-400/10 pointer-events-none" />
-            </div>
+              {/* CARD */}
+              <div className="relative mt-4 w-[290px] sm:w-[340px] h-[520px] sm:h-[560px] rounded-[32px] 
+                bg-white dark:bg-[#0B1225] border border-slate-200/80 dark:border-white/10 
+                shadow-xl shadow-slate-200/50 dark:shadow-black/60 
+                backdrop-blur-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
+
+                {/* Background Decorative Accent Glows */}
+                <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+                <div className="p-6 sm:p-7 h-full flex flex-col relative z-10">
+
+                  {/* Header */}
+                  <div className="flex justify-between items-center text-[10px] tracking-[0.25em] uppercase font-mono text-slate-400 dark:text-slate-500">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      Developer
+                    </span>
+                    <span>2026</span>
+                  </div>
+
+                  {/* Profile Avatar */}
+                  <div className="flex justify-center mt-6 sm:mt-7">
+                    <div className="relative group cursor-pointer" onClick={() => setIsImageModalOpen(true)}>
+                      <div className="p-[3px] rounded-full bg-gradient-to-tr from-blue-600 via-cyan-400 to-indigo-500 
+                        shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">
+                        <img
+                          src={profileImg}
+                          alt="Muhammad Hussain Memon"
+                          className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-white dark:border-[#0B1225]"
+                        />
+                      </div>
+                      {/* Hover Hint */}
+                      <div className="absolute inset-0 rounded-full bg-black/20 opacity-0 group-hover:opacity-100 
+                        transition-opacity duration-200 flex items-center justify-center text-white text-xs font-mono">
+                        View
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Name & Title */}
+                  <div className="text-center mt-5 sm:mt-6 px-2">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">
+                      Muhammad Hussain
+                    </h3>
+                    <p className="text-blue-600 dark:text-blue-400 tracking-[0.2em] text-[10px] sm:text-xs uppercase mt-1.5 font-mono font-semibold">
+                      Frontend Developer
+                    </p>
+                  </div>
+
+                  {/* Skills */}
+                  <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-7">
+                    {skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 rounded-full border border-slate-200 dark:border-white/10 
+                     bg-slate-100/80 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 
+                     text-[11px] sm:text-xs font-medium backdrop-blur-md 
+                     hover:border-blue-400/40 transition-colors duration-200"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Bottom Footer Details */}
+                  <div className="mt-auto border-t border-slate-200/80 dark:border-white/10 pt-4 sm:pt-5">
+                    <div className="flex justify-between items-end">
+                      <div className="font-mono space-y-2">
+                        <div>
+                          <p className="text-[9px] uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                            ID Number
+                          </p>
+                          <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100">
+                            MHM-488103
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-[9px] uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                            Access Level
+                          </p>
+                          <p className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300">
+                            Karachi, PK
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* QR Code Layout */}
+                      <div className="w-18 sm:w-20 rounded-xl p-1.5 bg-white border border-slate-200 dark:border-white/20 
+                        shadow-sm flex items-center justify-center shrink-0">
+                        <img src={qrCodeImg} alt="QR Code" className="w-full h-auto aspect-square object-contain" />
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Subtle Border Overlay */}
+                <div className="absolute inset-0 rounded-[32px] border border-blue-500/10 dark:border-blue-400/20 pointer-events-none" />
+              </div>
             </motion.div>
           </div>
 
