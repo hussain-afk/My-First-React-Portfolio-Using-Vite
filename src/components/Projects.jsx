@@ -46,7 +46,7 @@ const projectsData = [
     category: 'frontend',
     description:
       'A responsive image tool for quick background removal with drag-and-drop input and smooth asset handling.',
-    tags: ['API', 'React', 'Context-API','Responsive Logic'],
+    tags: ['API', 'React', 'Context-API', 'Responsive Logic'],
     githubUrl: 'https://github.com/hussain-afk/E-Commerce-Store-Using-React--Hand-Coded-Project-',
     liveUrl: 'https://e-commerce-store-using-react-hand-c.vercel.app/',
   },
@@ -76,7 +76,7 @@ const projectsData = [
     category: 'fullstack',
     description:
       'A comprehensive maintenance management system with real-time tracking, responsive design, and interactive user experience.',
-    tags: ['API Integration', 'React', 'Dynamic UI','Maintenance Management','firebase','cloud firestore'],
+    tags: ['API Integration', 'React', 'Dynamic UI', 'Maintenance Management', 'firebase', 'cloud firestore'],
     githubUrl: 'https://github.com/hussain-afk/SMIT-HACKATHON-MaintainIQ',
     liveUrl: 'https://smit-hackathon-maintain-iq.vercel.app/',
   },
@@ -86,7 +86,7 @@ const projectsData = [
     category: 'fullstack',
     description:
       'A comprehensive employee management system with real-time tracking, responsive design, and interactive user experience.',
-    tags: ['API Integration', 'React', 'Dynamic UI','Employee Management','firebase','cloud firestore'],
+    tags: ['API Integration', 'React', 'Dynamic UI', 'Employee Management', 'firebase', 'cloud firestore'],
     githubUrl: 'https://github.com/hussain-afk/EMS--Employee-Management-System-',
     liveUrl: 'https://ems-employee-management-system-delta.vercel.app/',
   },
@@ -107,7 +107,7 @@ export default function Projects() {
   // Reset activeIndex when category changes so we don't point to non-existing slides
   const handleFilterChange = (newCategory) => {
     setFilter(newCategory);
-    setActiveIndex(0); 
+    setActiveIndex(0);
   };
 
   const handleNext = useCallback(() => {
@@ -123,7 +123,7 @@ export default function Projects() {
   // 2. Render calculations updated to use filtered list
   const visibleProjects = useMemo(() => {
     if (filteredProjects.length === 0) return [];
-    
+
     return filteredProjects
       .map((project, index) => {
         let offset = index - activeIndex;
@@ -141,7 +141,7 @@ export default function Projects() {
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#58a6ff]/5 blur-3xl sm:h-[420px] sm:w-[420px]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-xl flex-col justify-center">
-        
+
         {/* TOP HEADER SECTION */}
         <div className="mb-8 flex flex-col gap-6 text-center sm:mb-10 sm:flex-row sm:items-end sm:justify-between sm:text-left">
           <div className="min-w-0">
@@ -150,15 +150,14 @@ export default function Projects() {
             </span>
 
             <h2
-              className={`text-2xl font-black uppercase tracking-tight sm:text-4xl ${
-                isDark ? 'text-white' : 'text-gray-950'
-              }`}
+              className={`text-2xl font-black uppercase tracking-tight sm:text-4xl ${isDark ? 'text-white' : 'text-gray-950'
+                }`}
             >
               Featured{' '}
               <span className="normal-case text-[#58a6ff] drop-shadow-[0_0_16px_rgba(88,166,255,0.22)]">
                 Projects
               </span>
-            </h2> 
+            </h2>
 
             <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#58a6ff] to-transparent sm:mx-0 sm:w-24" />
           </div>
@@ -170,11 +169,10 @@ export default function Projects() {
               onClick={handlePrev}
               disabled={filteredProjects.length <= 1}
               aria-label="Previous project"
-              className={`flex h-10 w-10 items-center justify-center rounded-xl border transition-[border-color,color,background-color,transform] duration-200 hover:border-[#58a6ff]/40 hover:text-[#58a6ff] active:scale-95 disabled:opacity-30 disabled:pointer-events-none sm:h-11 sm:w-11 ${
-                isDark
+              className={`flex h-10 w-10 items-center justify-center rounded-xl border transition-[border-color,color,background-color,transform] duration-200 hover:border-[#58a6ff]/40 hover:text-[#58a6ff] active:scale-95 disabled:opacity-30 disabled:pointer-events-none sm:h-11 sm:w-11 ${isDark
                   ? 'border-[#30363d] bg-[#161b22] text-gray-400'
                   : 'border-gray-300 bg-white text-gray-600'
-              }`}
+                }`}
             >
               <FiChevronLeft className="h-5 w-5" />
             </button>
@@ -184,11 +182,10 @@ export default function Projects() {
               onClick={handleNext}
               disabled={filteredProjects.length <= 1}
               aria-label="Next project"
-              className={`flex h-10 w-10 items-center justify-center rounded-xl border transition-[border-color,color,background-color,transform] duration-200 hover:border-[#58a6ff]/40 hover:text-[#58a6ff] active:scale-95 disabled:opacity-30 disabled:pointer-events-none sm:h-11 sm:w-11 ${
-                isDark
+              className={`flex h-10 w-10 items-center justify-center rounded-xl border transition-[border-color,color,background-color,transform] duration-200 hover:border-[#58a6ff]/40 hover:text-[#58a6ff] active:scale-95 disabled:opacity-30 disabled:pointer-events-none sm:h-11 sm:w-11 ${isDark
                   ? 'border-[#30363d] bg-[#161b22] text-gray-400'
                   : 'border-gray-300 bg-white text-gray-600'
-              }`}
+                }`}
             >
               <FiChevronRight className="h-5 w-5" />
             </button>
@@ -196,92 +193,94 @@ export default function Projects() {
         </div>
 
         {/* 🌟 NEW: Clean Category Filter Tabs */}
-        <div className="flex justify-center mb-10">
-  <div
-    className={`inline-flex items-center gap-2 p-2 rounded-full border transition-all duration-300 ${
-      isDark
-        ? 'bg-[#0d1117] border-[#30363d]'
-        : 'bg-gray-100 border-gray-200'
-    }`}
-  >
-    {['all', 'frontend', 'fullstack'].map((cat) => {
-      const isActive = filter === cat;
+        <div className="flex justify-center mb-10 px-4 w-full">
+          <div
+            className={`inline-flex flex-col sm:flex-row items-stretch sm:items-center gap-1 sm:gap-0 p-1.5 sm:p-1 rounded-xl shadow-2xl transition-colors duration-300 w-full sm:w-auto max-w-xs sm:max-w-none ${isDark
+                ? 'bg-[#0d1117] border border-[#30363d]'
+                : 'bg-gray-100 border border-gray-300'
+              }`}
+          >
+            {['all', 'frontend', 'fullstack'].map((cat, index) => {
+              const isActive = filter === cat;
+              const isFirst = index === 0;
+              const isLast = index === 2;
 
-      return (
-        <button
-          key={cat}
-          onClick={() => handleFilterChange(cat)}
-          className={`
-            relative
-            px-5
-            sm:px-7
-            py-2.5
-            rounded-full
-            text-xs
-            sm:text-sm
-            font-semibold
-            capitalize
-            tracking-wide
-            cursor-pointer
-            transition-all
-            duration-300
-            whitespace-nowrap
-            ${
-              isActive
-                ? 'bg-[#58a6ff] text-white shadow-md'
-                : isDark
-                  ? 'text-gray-400 hover:text-white hover:bg-[#161b22]'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
-            }
+              return (
+                <button
+                  key={cat}
+                  onClick={() => handleFilterChange(cat)}
+                  style={{
+                    /* Responsive clip-path logic using CSS custom properties via className below */
+                    marginLeft: index > 0 ? 'var(--overlap-x, 0px)' : '0',
+                    marginTop: index > 0 ? 'var(--overlap-y, 0px)' : '0',
+                  }}
+                  className={`
+            relative group 
+            w-full sm:w-auto
+            px-4 sm:px-8 py-2.5 sm:py-3
+            text-xs font-bold uppercase tracking-wider
+            transition-all duration-300 ease-out
+            flex items-center justify-center sm:justify-start gap-2.5 whitespace-nowrap
+            
+            /* Responsive Overlap Variables */
+            [--overlap-x:0px] sm:[--overlap-x:-6px]
+            [--overlap-y:-2px] sm:[--overlap-y:0px]
+
+            /* Responsive Clip Shapes (Rounded rectangular on mobile, Slanted Armor on Desktop) */
+            rounded-lg sm:rounded-none
+            [clip-path:none] 
+            ${isFirst
+                      ? 'sm:[clip-path:polygon(0%_0%,_100%_0%,_88%_100%,_0%_100%)]'
+                      : isLast
+                        ? 'sm:[clip-path:polygon(12%_0%,_100%_0%,_100%_100%,_0%_100%)]'
+                        : 'sm:[clip-path:polygon(12%_0%,_100%_0%,_88%_100%,_0%_100%)]'
+                    }
+
+            ${isActive ? 'z-10' : 'z-0'}
+            ${isActive
+                      ? isDark
+                        ? 'bg-[#161b22] text-white shadow-[0_0_15px_rgba(88,166,255,0.3)] ring-1 ring-[#58a6ff]'
+                        : 'bg-white text-blue-600 shadow-md ring-1 ring-blue-500'
+                      : isDark
+                        ? 'text-gray-400 hover:text-white hover:bg-[#161b22]/50'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/60'
+                    }
           `}
-        >
-          <span className="flex items-center gap-2">
-            {/* Category Indicator */}
-            <span
-              className={`
-                w-1.5
-                h-1.5
-                rounded-full
-                transition-all
-                duration-300
-                ${
-                  isActive
-                    ? 'bg-white scale-110'
-                    : isDark
-                      ? 'bg-gray-600'
-                      : 'bg-gray-400'
-                }
-              `}
-            />
+                >
+                  {/* Kinetic Diamond Indicator */}
+                  <span
+                    className={`
+              w-2 h-2 rotate-45 transition-all duration-300 shrink-0
+              ${isActive
+                        ? 'bg-[#58a6ff] scale-125 shadow-[0_0_8px_#58a6ff]'
+                        : isDark
+                          ? 'bg-gray-600 group-hover:bg-gray-400'
+                          : 'bg-gray-400 group-hover:bg-gray-600'
+                      }
+            `}
+                  />
 
-            {/* Label */}
-            {cat === 'all'
-              ? 'All Projects'
-              : cat === 'frontend'
-                ? 'Frontend'
-                : 'Full Stack'}
-          </span>
+                  {/* Text Label */}
+                  <span className="truncate">
+                    {cat === 'all'
+                      ? 'All Projects'
+                      : cat === 'frontend'
+                        ? 'Frontend'
+                        : 'Full Stack'}
+                  </span>
 
-          {/* Active Bottom Indicator */}
-          {isActive && (
-            <span
-              className="
-                absolute
-                left-1/2
-                -bottom-1
-                w-1
-                h-1
-                rounded-full
-                bg-[#58a6ff]
-                -translate-x-1/2
-              "
-            />
-          )}
-        </button>
-      );
-    })}
-  </div>
-</div>
+                  {/* Active Accent Notch */}
+                  {isActive && (
+                    <span
+                      className="absolute top-0 right-0 w-2 h-2 bg-[#58a6ff]"
+                      style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
         {/* CAROUSEL CONTAINER */}
         <div className="relative flex h-[380px] w-full items-center justify-center [perspective:1000px] sm:h-[400px]">
@@ -309,24 +308,21 @@ export default function Projects() {
                     willChange: 'transform, opacity',
                     contain: 'layout paint',
                   }}
-                  className={`absolute flex h-full w-full max-w-[450px] transform-gpu flex-col justify-between overflow-hidden rounded-2xl border p-5 shadow-xl transition-[transform,opacity,border-color,background-color] duration-500 ease-out sm:p-7 ${
-                    isDark ? 'bg-[#161b22]/95' : 'bg-white'
-                  } ${
-                    isCenter
+                  className={`absolute flex h-full w-full max-w-[450px] transform-gpu flex-col justify-between overflow-hidden rounded-2xl border p-5 shadow-xl transition-[transform,opacity,border-color,background-color] duration-500 ease-out sm:p-7 ${isDark ? 'bg-[#161b22]/95' : 'bg-white'
+                    } ${isCenter
                       ? 'border-[#58a6ff]/60 shadow-[0_14px_30px_rgba(88,166,255,0.08)]'
                       : isDark
                         ? 'pointer-events-none border-[#30363d]'
                         : 'pointer-events-none border-gray-300'
-                  }`}
+                    }`}
                 >
                   {isCenter && (
                     <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-[#58a6ff]/50 to-transparent" />
                   )}
 
                   <span
-                    className={`pointer-events-none absolute -bottom-4 -right-2 font-mono text-6xl font-black leading-none sm:text-8xl ${
-                      isDark ? 'text-[#30363d]/20' : 'text-gray-200'
-                    }`}
+                    className={`pointer-events-none absolute -bottom-4 -right-2 font-mono text-6xl font-black leading-none sm:text-8xl ${isDark ? 'text-[#30363d]/20' : 'text-gray-200'
+                      }`}
                   >
                     0{index + 1}
                   </span>
@@ -334,32 +330,29 @@ export default function Projects() {
                   <div>
                     <div className="mb-5 flex items-center justify-between sm:mb-6">
                       <div
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border sm:h-11 sm:w-11 ${
-                          isCenter
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border sm:h-11 sm:w-11 ${isCenter
                             ? 'border-[#58a6ff]/30 text-[#58a6ff]'
                             : isDark
                               ? 'border-[#30363d] text-gray-500'
                               : 'border-gray-300 text-gray-500'
-                        } ${isDark ? 'bg-[#0d1117]' : 'bg-gray-100'}`}
+                          } ${isDark ? 'bg-[#0d1117]' : 'bg-gray-100'}`}
                       >
                         <FiFolder className="h-5 w-5" />
                       </div>
 
                       <div
-                        className={`relative z-20 flex items-center gap-2 sm:gap-3 ${
-                          isDark ? 'text-gray-400' : 'text-gray-600'
-                        }`}
+                        className={`relative z-20 flex items-center gap-2 sm:gap-3 ${isDark ? 'text-gray-400' : 'text-gray-600'
+                          }`}
                       >
                         <a
                           href={project.githubUrl}
                           target="_blank"
                           rel="noreferrer"
                           aria-label={`${project.title} GitHub repository`}
-                          className={`rounded-lg p-1.5 transition-colors duration-200 ${
-                            isDark
+                          className={`rounded-lg p-1.5 transition-colors duration-200 ${isDark
                               ? 'hover:bg-[#30363d]/40 hover:text-white'
                               : 'hover:bg-gray-100 hover:text-gray-950'
-                          }`}
+                            }`}
                         >
                           <FiGithub className="h-4 w-4" />
                         </a>
@@ -383,21 +376,19 @@ export default function Projects() {
                       </span>
 
                       <h3
-                        className={`text-lg font-black tracking-tight transition-colors duration-300 sm:text-2xl ${
-                          isCenter
+                        className={`text-lg font-black tracking-tight transition-colors duration-300 sm:text-2xl ${isCenter
                             ? 'text-[#58a6ff]'
                             : isDark
                               ? 'text-white'
                               : 'text-gray-950'
-                        }`}
+                          }`}
                       >
                         {project.title}
                       </h3>
 
                       <p
-                        className={`line-clamp-5 pt-1 text-left text-xs leading-relaxed sm:line-clamp-none sm:text-sm ${
-                          isDark ? 'text-gray-400' : 'text-gray-600'
-                        }`}
+                        className={`line-clamp-5 pt-1 text-left text-xs leading-relaxed sm:line-clamp-none sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'
+                          }`}
                       >
                         {project.description}
                       </p>
@@ -405,18 +396,16 @@ export default function Projects() {
                   </div>
 
                   <div
-                    className={`relative z-20 mt-5 flex flex-wrap gap-1.5 border-t pt-4 sm:mt-6 ${
-                      isDark ? 'border-[#30363d]/40' : 'border-gray-200'
-                    }`}
+                    className={`relative z-20 mt-5 flex flex-wrap gap-1.5 border-t pt-4 sm:mt-6 ${isDark ? 'border-[#30363d]/40' : 'border-gray-200'
+                      }`}
                   >
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className={`rounded-md border px-2 py-0.5 font-mono text-[9px] sm:py-1 sm:text-[10px] ${
-                          isDark
+                        className={`rounded-md border px-2 py-0.5 font-mono text-[9px] sm:py-1 sm:text-[10px] ${isDark
                             ? 'border-[#30363d]/60 bg-[#0d1117] text-gray-400'
                             : 'border-gray-300 bg-gray-100 text-gray-600'
-                        }`}
+                          }`}
                       >
                         {tag}
                       </span>

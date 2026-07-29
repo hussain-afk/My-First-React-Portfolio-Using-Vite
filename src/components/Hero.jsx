@@ -118,7 +118,7 @@ export default function Hero() {
 
           {/* RIGHT CARD */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2 pt-0">
-            <motion.div
+            {/* <motion.div
               animate={{
                 y: [0, -12, 0],
                 rotate: [-1, 1, -1],
@@ -129,7 +129,7 @@ export default function Hero() {
                 ease: "easeInOut",
               }}
               className="relative"
-            >
+            > */}
               {/* Hanging Rope */}
               <div className="absolute left-1/2 -top-16 -translate-x-1/2 hidden sm:block">
                 <div className="w-[2px] h-16 bg-gray-300/60 dark:bg-white/20" />
@@ -139,7 +139,7 @@ export default function Hero() {
               <div className="relative mt-4 w-[290px] sm:w-[340px] h-[520px] sm:h-[560px] rounded-[32px] 
                 bg-white dark:bg-[#0B1225] border border-slate-200/80 dark:border-white/10 
                 shadow-xl shadow-slate-200/50 dark:shadow-black/60 
-                backdrop-blur-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
+                backdrop-blur-xl overflow-hidden transition-all duration-300 hover:shadow-2xl ">
 
                 {/* Background Decorative Accent Glows */}
                 <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -236,7 +236,7 @@ export default function Hero() {
                 {/* Subtle Border Overlay */}
                 <div className="absolute inset-0 rounded-[32px] border border-blue-500/10 dark:border-blue-400/20 pointer-events-none" />
               </div>
-            </motion.div>
+            {/* </motion.div> */}
           </div>
 
         </div>
