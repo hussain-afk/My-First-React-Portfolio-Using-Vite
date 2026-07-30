@@ -1,15 +1,20 @@
 import { useContext } from 'react';
 import { FiAward, FiTarget, FiActivity, FiArrowUpRight, FiZap } from 'react-icons/fi';
 import { ThemeContext } from '../components/themeContext/context';
+import { useState } from 'react';
+import Modal from '../components/Modal';
+import MetaCertification from '../assets/Coursera META Frontend Developer.jpg';
 
 export default function Achievements() {
   const { theme } = useContext(ThemeContext);
+  const [isCertificationModalOpen, setIsCertificationModalOpen] = useState(false);
   const isDark = theme === 'dark';
 
   const achievementsData = [
     {
       title: "Meta Front-End Developer Certified",
       category: "Certification",
+      isOpen: true,
       metric: "Credential Complete",
       description: "Successfully authorized professional frontend certification directly verified by Meta. Validated advanced mastery across high-level Single Page Application architectures, complex state mechanics, component lifecycles, UI rendering metrics, and deployment pipelines.",
       icon: FiAward,
@@ -46,7 +51,8 @@ export default function Achievements() {
   ];
 
   return (
-    <section className="relative min-h-screen py-6 animate-fadeIn">
+    <div>
+      <section className="relative min-h-screen py-6 animate-fadeIn">
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#58a6ff]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="mb-12 text-center lg:text-left">
@@ -75,7 +81,8 @@ export default function Achievements() {
           return (
             <div
               key={index}
-              className={`group relative border rounded-2xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden shadow-xl transition-all duration-300 hover:border-[#58a6ff]/40 hover:shadow-2xl ${
+              onClick={item.isOpen && (() => setIsCertificationModalOpen(true))}
+              className={`cursor-pointer group relative border rounded-2xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden shadow-xl transition-all duration-300 hover:border-[#58a6ff]/40 hover:shadow-2xl ${
                 isDark
                   ? 'bg-[#161b22] border-[#30363d]'
                   : 'bg-white border-gray-300'
@@ -95,9 +102,19 @@ export default function Achievements() {
                     <IconComponent className="w-6 h-6" />
                   </div>
 
-                  <span className={`px-2.5 py-1 rounded-md text-[10px] uppercase font-mono font-bold tracking-wider border ${item.tagColor}`}>
+                  <div className="flex items-center gap-2">
+                    <span className={`px-2.5 py-1 rounded-md text-[10px] uppercase font-mono font-bold tracking-wider border ${item.tagColor}`}>
                     {item.category}
                   </span>
+                  {
+                    item.isOpen && (
+                      <span onClick={()=>setIsCertificationModalOpen(true)} className={`px-2.5 py-1 rounded-md text-[10px] uppercase font-mono font-bold tracking-wider border ${item.tagColor}`}>
+                        Click To View
+                      </span>
+                    )
+                  }
+                  </div>
+                  
                 </div>
 
                 <div className="space-y-2">
@@ -143,5 +160,11 @@ export default function Achievements() {
         })}
       </div>
     </section>
+    <Modal isOpen={isCertificationModalOpen} onClose={() => setIsCertificationModalOpen(false)} theme={isDark ? "dark" : "light"} title="Certification" title="Meta Front-End Developer Certified">
+      <div className="flex flex-col items-center justify-center">
+        <img src={MetaCertification} alt="Certification" className="w-full h-auto" />
+      </div>
+    </Modal>
+    </div>
   );
 }
